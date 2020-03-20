@@ -3,9 +3,10 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import 'antd/dist/antd.css';
 
 import rootReducer from './store/rootReducer';
-import Home from './containers/Home';
+import Layout from './containers/Layout';
 
 const log = createLogger({ diff: true, collapsed: true });
 const middlewares = [thunk, log];
@@ -15,6 +16,6 @@ const store = createStore(rootReducer, compose(applyMiddleware(...middlewares), 
 
 export default () => (
   <Provider store={store}>
-    <Home />
+    <Layout />
   </Provider>
 );
